@@ -1,0 +1,57 @@
+body {
+  padding: 0 50px;
+  overflow: auto;
+}
+
+.header {
+  padding: 10px 50px;
+  border: 1px solid #666;
+  border-radius: 10px;
+  text-align: center;
+}
+
+p {
+  color: red;
+}
+
+a {
+  margin-right: 10px;
+}
+
+.title {
+  text-align: center;
+}
+
+.disable {
+  display: none;
+}
+
+.danger {
+  background-color: red;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.item {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.pagination-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination {
+  color: blue;
+  font-size: 30px;
+  cursor: pointer;
+}
