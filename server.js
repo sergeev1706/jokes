@@ -93,7 +93,7 @@ app.get('/list/page/:num', (req, res) => {
   }
 
   res.render('list', {
-    title: 'список анекдотов',
+    title: `список анекдотов страница ${page}`,
     jokes: outputRecords,
     pages: pages,
     topics: getUnicueList(),
@@ -138,7 +138,7 @@ app.post('/admin', (req, res) => {
   }
 
   jokes.push({
-    id: jokes.length + 1,
+    id: Date.now(),
     text: req.body.text,
     topic: topic,
   });

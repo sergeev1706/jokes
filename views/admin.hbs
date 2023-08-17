@@ -25,8 +25,8 @@
   {{#each jokes}}
   <li class="item">
     <p>{{format_id.}}</p>
-    <h3>{{format_text.}}</h3>
     <p>{{format_topic.}}</p>
+    <h3>{{format_text.}}</h3>
     <form action="/delete/{{format_id.}}" method="GET">
       <button type="submit">удалить анекдот</button>
     </form>
