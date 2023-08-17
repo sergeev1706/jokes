@@ -1,7 +1,39 @@
-{{!-- <button id="admin-btn">добавить анекдот</button> --}}
-{{!-- <textarea id="textarea" class="disable" cols="30" rows="10"></textarea> --}}
+{{#if massage}}
+<p class="massage">{{massage}}</p>
+{{/if}}
+
+<h2>добавить анекдот</h2>
+
 
 <form action="/admin" method="POST">
-  <input type="text" name="text">
-  <button type="submit">add btn</button>
+  <p>выбрать категорию из списка</p>
+  <select name="topic">
+    {{#each topics}}
+    <option value="{{.}}">{{.}}</option>
+    {{/each}}
+  </select><br>
+  <p>или добавить категорию</p>
+  <input type="text" name="newCat"><br><br>
+  <textarea id="textarea" cols="100" rows="10" name="text"></textarea><br />
+
+  <button type="submit">добавить анекдот</button>
 </form>
+
+<h2>список анекдотов</h2>
+
+<ul>
+  {{#each jokes}}
+  <li class="item">
+    <p>{{format_id.}}</p>
+    <h3>{{format_text.}}</h3>
+    <p>{{format_topic.}}</p>
+    <form action="/delete/{{format_id.}}" method="GET">
+      <button type="submit">удалить анекдот</button>
+    </form>
+    <br>
+    <form action="/update/{{format_id.}}">
+      <button type="submit">измеить анекдот</button>
+    </form>
+  </li>
+  {{/each}}
+</ul>

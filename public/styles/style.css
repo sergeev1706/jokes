@@ -32,6 +32,7 @@ a {
 
 ul {
   padding: 0;
+  margin: 0;
 }
 
 li {
@@ -41,7 +42,10 @@ li {
 .item {
   border: 1px solid black;
   border-radius: 15px;
-  padding: 10px;
+  padding: 20px;
+}
+
+.item:not(:last-child) {
   margin-bottom: 10px;
 }
 
@@ -54,4 +58,31 @@ li {
   color: blue;
   font-size: 30px;
   cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav {
+  width: 20%;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.body {
+  width: 75%;
+}
+
+.massage {
+  text-align: center;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #f4b3b3;
+  color: black;
 }

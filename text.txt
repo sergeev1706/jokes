@@ -1,0 +1,11 @@
+// обьект в представлении
+
+<ul>
+  {{#each jokes}}
+  <li class="item">
+    <p>{{format_id.}}</p>
+    <h3>{{format_text.}}</h3>
+    <p>{{format_topic.}}</p>
+  </li>
+  {{/each}}
+</ul>
