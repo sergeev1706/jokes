@@ -72,12 +72,31 @@ function getMassage(param) {
 // --------------- pagination -------------
 
 let page = 1; // номер выводимой страницы
-let countElem = 3; // количество выводимых анекдотов на странице
+let countElem = 5; // количество выводимых анекдотов на странице
 let countPages; // количество страниц
 
 // ----------------------------------------
 
 // главная список с пагинацией
+app.get('/', (req, res) => {
+  let outputRecords = jokes.slice(0, countElem);
+
+  countPages = Math.ceil(jokes.length / countElem);
+
+  let pages = [];
+  for (let i = 0; i < countPages; i++) {
+    pages.push(i + 1);
+  }
+
+  res.render('list', {
+    title: `список анекдотов страница ${page}`,
+    jokes: outputRecords,
+    pages: pages,
+    topics: getUnicueList(),
+  })
+})
+
+// список с пагинацией
 app.get('/list/page/:num', (req, res) => {
   page = req.params.num;
 
@@ -178,6 +197,7 @@ app.get('/update/:id', (req, res) => {
   })
 
   res.render('update', {
+    title: 'страница изменение анекдота',
     joke: joke,
   })
 })
@@ -205,4 +225,4 @@ app.use((req, res) => {
   res.status(404).send('not found');
 });
 
-app.listen(3000, () => console.log('running...'));
+app.listen(3003, () => console.log('running...'));
